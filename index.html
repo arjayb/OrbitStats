@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OrbitStats — Contributor Analytics Dashboard</title>
+<meta name="description" content="Commit frequency, language breakdown, and contributor activity for any public GitHub repository, charted as a blueprint-style analytics dashboard.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="sheet-header">
+    <div class="title-block">
+      <h1>OrbitStats<span class="rev">rev.02</span></h1>
+      <p class="subhead">contributor analytics, drafted like a blueprint</p>
+    </div>
+    <div class="lookup">
+      <label for="repo-input">repo (owner/name)</label>
+      <div class="lookup-row">
+        <input id="repo-input" type="text" placeholder="facebook/react" autocomplete="off" spellcheck="false">
+        <button id="plot-btn" type="button">Plot</button>
+      </div>
+      <p id="status-line" class="status-line">Enter a public repository to begin.</p>
+    </div>
+  </header>
+
+  <main id="dash" class="dash hidden">
+    <section class="panel panel-wide" id="repo-meta"></section>
+
+    <section class="panel">
+      <h2><span class="tag">01</span> Commit activity, last 52 weeks</h2>
+      <svg id="commit-chart" viewBox="0 0 640 220" class="chart" role="img" aria-label="Weekly commit activity bar chart"></svg>
+    </section>
+
+    <section class="panel">
+      <h2><span class="tag">02</span> Language composition</h2>
+      <svg id="lang-chart" viewBox="0 0 640 60" class="chart chart-flat" role="img" aria-label="Language composition bar"></svg>
+      <ul id="lang-list" class="lang-list"></ul>
+    </section>
+
+    <section class="panel panel-wide">
+      <h2><span class="tag">03</span> Top contributors</h2>
+      <div id="contributor-table" class="contributor-table"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Data via the GitHub REST API. No backend, no login. <a href="https://github.com/arjayb/OrbitStats" target="_blank" rel="noopener">Source</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
